@@ -21,6 +21,7 @@ exynos5433_dirs := \
 	mobicore \
 	libgatekeeper \
 	libkeymaster \
+	libsecurepath
 
 #ifeq ($(BOARD_BACK_CAMERA_USES_EXTERNAL_CAMERA), true)
 #exynos5433_dirs += \
