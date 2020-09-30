@@ -20,7 +20,7 @@
 
 #define VSYNC_DEV_PREFIX "/sys/devices/"
 #define VSYNC_DEV_MIDDLE "14850000.sysmmu/14850000.sysmmu/"
-#define VSYNC_DEV_NAME  "14830000.decon_fb/vsync"
+#define VSYNC_DEV_NAME  "13800000.decon_fb/vsync"
 
 #define FIMD_WORD_SIZE_BYTES   16
 #define FIMD_BURSTLEN   16
@@ -86,6 +86,8 @@ const size_t HDMI_GSC_IDX = 2;
 const size_t HDMI_EXT_MPP_IDX = 2;
 const size_t WFD_GSC_IDX = 1;
 const size_t WFD_EXT_MPP_IDX = 1;
+
+const size_t FIMD_GSC_SEC_IDX = 1;
 
 const int FIMD_GSC_USAGE_IDX[] = {FIMD_GSC_IDX};
 const int AVAILABLE_GSC_UNITS[] = { 0, 1};
