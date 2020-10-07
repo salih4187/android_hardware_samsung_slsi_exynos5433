@@ -43,6 +43,9 @@
 /* Max number windows available in Exynos5433 is 5. */
 #define NUM_AVAILABLE_HW_WINDOWS	5
 
+/* Disable Secure DMA registers */
+#define DISABLE_IDMA_SECURE
+
 #ifdef FIMD_BW_OVERLAP_CHECK
 const size_t MAX_NUM_FIMD_DMA_CH = 3;
 const uint32_t FIMD_DMA_CH_IDX[] = {0, 1, 2};
