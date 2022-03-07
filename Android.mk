@@ -23,8 +23,8 @@ exynos5433_dirs := \
 	libkeymaster \
 	libsecurepath
 
-ifeq ($(BOARD_USES_EXYNOS7880_GRALLOC), true)
-exynos7880_dirs += \
+ifeq ($(BOARD_USES_EXYNOS5433_GRALLOC), true)
+exynos5433_dirs += \
 	gralloc
 endif
 
