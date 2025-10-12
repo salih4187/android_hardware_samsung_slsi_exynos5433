@@ -19,7 +19,7 @@
 #include <hardware/hwcomposer.h>
 
 #define VSYNC_DEV_PREFIX "/sys/devices/"
-#define VSYNC_DEV_MIDDLE "14850000.sysmmu/14850000.sysmmu/"
+#define VSYNC_DEV_MIDDLE "13a10000.sysmmu/13a10000.sysmmu/"
 #define VSYNC_DEV_NAME  "13800000.decon_fb/vsync"
 
 #define FIMD_WORD_SIZE_BYTES   16
