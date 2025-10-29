@@ -23,7 +23,8 @@
 #define VSYNC_DEV_NAME  "13800000.decon_fb/vsync"
 
 #define FIMD_WORD_SIZE_BYTES   16
-#define FIMD_BURSTLEN   16
+#define FIMD_BURSTLEN   8
+#define FIMD_ADDED_BURSTLEN_BYTES     4
 #define FIMD_BW_OVERLAP_CHECK
 
 #define TRY_SECOND_VSYNC_DEV
@@ -31,10 +32,6 @@
 #define VSYNC_DEV_NAME2  "exynos5-fb.1/vsync"
 #define VSYNC_DEV_MIDDLE2  "platform/exynos-sysmmu.30/exynos-sysmmu.11/"
 #endif
-
-#define HDMI_RESERVE_MEM_DEV_NAME "/sys/class/ion_cma/ion_video_ext/isolated"
-#define SMEM_PATH "/dev/s5p-smem"
-#define SECMEM_IOC_SET_VIDEO_EXT_PROC   _IOWR('S', 13, int)
 
 #define HWC_VERSION HWC_DEVICE_API_VERSION_1_5
 
@@ -47,17 +44,12 @@
 #define DISABLE_IDMA_SECURE
 
 #ifdef FIMD_BW_OVERLAP_CHECK
-const size_t MAX_NUM_FIMD_DMA_CH = 3;
-const uint32_t FIMD_DMA_CH_IDX[] = {0, 1, 2};
-const uint32_t FIMD_DMA_CH_BW_SET1[MAX_NUM_FIMD_DMA_CH] = {1920 * 1080, 1920 * 1080, 1920 * 1080};
-const uint32_t FIMD_DMA_CH_BW_SET2[MAX_NUM_FIMD_DMA_CH] = {1920 * 1200, 1920 * 1200, 1920 * 1200};
-const uint32_t FIMD_DMA_CH_OVERLAP_CNT_SET1[MAX_NUM_FIMD_DMA_CH] = {1, 1, 1};
-const uint32_t FIMD_DMA_CH_OVERLAP_CNT_SET2[MAX_NUM_FIMD_DMA_CH] = {1, 1, 1};
-
-/*
- * TODO: All channels are enabled for WUXGA channels. Need to check
- * if this is supported. If yes disable BW CHK else fine tune.
- */
+const size_t MAX_NUM_FIMD_DMA_CH = 2;
+const uint32_t FIMD_DMA_CH_IDX[] = {0, 1, 1, 1, 0};
+const uint32_t FIMD_DMA_CH_BW_SET1[MAX_NUM_FIMD_DMA_CH] = {1920 * 1080 *2, 1920 * 1080 *2};
+const uint32_t FIMD_DMA_CH_BW_SET2[MAX_NUM_FIMD_DMA_CH] = {2560 * 1600, 2560 * 1600 *2};
+const uint32_t FIMD_DMA_CH_OVERLAP_CNT_SET1[MAX_NUM_FIMD_DMA_CH] = {2, 2};
+const uint32_t FIMD_DMA_CH_OVERLAP_CNT_SET2[MAX_NUM_FIMD_DMA_CH] = {1, 2};
 
 inline void fimd_bw_overlap_limits_init(int xres, int yres,
             uint32_t *fimd_dma_chan_max_bw, uint32_t *fimd_dma_chan_max_overlap_cnt)
@@ -76,45 +68,23 @@ inline void fimd_bw_overlap_limits_init(int xres, int yres,
 }
 #endif
 
-const size_t GSC_DST_W_ALIGNMENT_RGB888 = 1;
+const size_t GSC_DST_W_ALIGNMENT_RGB888 = 16;
 const size_t GSC_DST_CROP_W_ALIGNMENT_RGB888 = 1;
 const size_t GSC_W_ALIGNMENT = 16;
 const size_t GSC_H_ALIGNMENT = 16;
 const size_t GSC_DST_H_ALIGNMENT_RGB888 = 1;
-
 const size_t FIMD_GSC_IDX = 0;
-const size_t FIMD_EXT_MPP_IDX = 0;
+const size_t FIMD_GSC_SEC_IDX = 1;
 /* HDMI_GSC_IDX is not used but added for build issue */
 const size_t HDMI_GSC_IDX = 2;
-const size_t HDMI_EXT_MPP_IDX = 2;
 #ifdef USES_VIRTUAL_DISPLAY
 const size_t WFD_GSC_IDX = 3;
-#else
-const size_t WFD_GSC_DRM_IDX = 3;
 #endif
-const size_t WFD_EXT_MPP_IDX = 1;
-
-const size_t FIMD_GSC_SEC_IDX = 1;
-
 const int FIMD_GSC_USAGE_IDX[] = {FIMD_GSC_IDX, FIMD_GSC_SEC_IDX};
 #ifdef USES_VIRTUAL_DISPLAY
 const int AVAILABLE_GSC_UNITS[] = { 0, 1, 1, 1 };
 #else
 const int AVAILABLE_GSC_UNITS[] = { 0, 1, 1, 5 };
 #endif
-
-#define MPP_VG          0
-#define MPP_VGR         2
-#define MPP_MSC         4
-#define MPP_MSC_1	5
-
-#define EXTERNAL_MPPS   2
-
-struct exynos_mpp_t {
-    int type;
-    unsigned int index;
-};
-
-const exynos_mpp_t AVAILABLE_EXTERNAL_MPP_UNITS[] = {{MPP_MSC, 0}, {MPP_MSC_1, 0} };
 
 #endif
