@@ -16,12 +16,9 @@
 
 # video codecs
 PRODUCT_PACKAGES := \
-    libOMX.Exynos.AAC.Decoder \
 	libOMX.Exynos.AVC.Decoder \
 	libOMX.Exynos.AVC.Encoder \
-    libOMX.Exynos.FLAC.Decoder \
-    libOMX.Exynos.HEVC.Decoder \
-    libOMX.Exynos.MP3.Decoder \
+        libOMX.Exynos.HEVC.Decoder \
 	libOMX.Exynos.MPEG4.Decoder \
 	libOMX.Exynos.MPEG4.Encoder \
 	libOMX.Exynos.VP8.Decoder \
