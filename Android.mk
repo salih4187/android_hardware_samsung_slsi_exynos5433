@@ -21,12 +21,8 @@ exynos5433_dirs := \
 	mobicore \
 	libgatekeeper \
 	libkeymaster \
-	libsecurepath
-
-ifeq ($(BOARD_USES_EXYNOS5433_GRALLOC), true)
-exynos5433_dirs += \
+	libsecurepath \
 	gralloc
-endif
 
 #ifeq ($(BOARD_BACK_CAMERA_USES_EXTERNAL_CAMERA), true)
 #exynos5433_dirs += \
