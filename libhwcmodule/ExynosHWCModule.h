@@ -33,8 +33,6 @@
 #define VSYNC_DEV_MIDDLE2  "platform/exynos-sysmmu.30/exynos-sysmmu.11/"
 #endif
 
-#define HWC_VERSION HWC_DEVICE_API_VERSION_1_5
-
 #define DUAL_VIDEO_OVERLAY_SUPPORT
 
 /* Max number windows available in Exynos5433 is 5. */
