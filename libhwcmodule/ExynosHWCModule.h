@@ -42,7 +42,7 @@
 #define DISABLE_IDMA_SECURE
 
 #ifdef FIMD_BW_OVERLAP_CHECK
-const size_t MAX_NUM_FIMD_DMA_CH = 2;
+const size_t MAX_NUM_FIMD_DMA_CH = 5;
 const uint32_t FIMD_DMA_CH_IDX[] = {0, 1, 1, 1, 0};
 const uint32_t FIMD_DMA_CH_BW_SET1[MAX_NUM_FIMD_DMA_CH] = {1920 * 1080 *2, 1920 * 1080 *2};
 const uint32_t FIMD_DMA_CH_BW_SET2[MAX_NUM_FIMD_DMA_CH] = {2560 * 1600, 2560 * 1600 *2};
@@ -69,7 +69,7 @@ inline void fimd_bw_overlap_limits_init(int xres, int yres,
 const size_t GSC_DST_W_ALIGNMENT_RGB888 = 16;
 const size_t GSC_DST_CROP_W_ALIGNMENT_RGB888 = 1;
 const size_t GSC_W_ALIGNMENT = 16;
-const size_t GSC_H_ALIGNMENT = 16;
+const size_t GSC_H_ALIGNMENT = 14;
 const size_t GSC_DST_H_ALIGNMENT_RGB888 = 1;
 const size_t FIMD_GSC_IDX = 0;
 const size_t FIMD_GSC_SEC_IDX = 1;
