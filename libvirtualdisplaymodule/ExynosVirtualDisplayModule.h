@@ -8,11 +8,9 @@ class ExynosVirtualDisplayModule : public ExynosVirtualDisplay {
         ExynosVirtualDisplayModule(struct exynos5_hwc_composer_device_1_t *pdev);
         ~ExynosVirtualDisplayModule();
 
-        // void setWFDOutputResolution(unsigned int width, unsigned int height, unsigned int disp_w, unsigned int disp_h);
-        // void setPriContents(hwc_display_contents_1_t* contents);
-        // void ExynosVirtualDisplayModule::isDeconExtWbSupported(hwc_layer_1 *param_1,uint param_2)
-        // int ExynosVirtualDisplayModule::isDeconExtWbSupported(hwc_layer_1 * __unused param_1,uint __unused param_2)
-        // void ExynosVirtualDisplayModule::setSinkBufferUsage(ExynosVirtualDisplayModule *this)
+        void init(hwc_display_contents_1_t __unused *virtual_contents);
+
+        void setPriContents(hwc_display_contents_1_t __unused *contents);
 
         virtual int32_t getDisplayAttributes(const uint32_t attribute, uint32_t config);
 };
