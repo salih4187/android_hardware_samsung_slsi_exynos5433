@@ -90,6 +90,8 @@ struct s3c_fb_win_config {
 
 #define S3C_FB_MAX_WIN (5)
 #define S3C_WIN_UPDATE_IDX (5)
+#define MAX_DECON_WIN (6)
+#define DECON_WIN_UPDATE_IDX MAX_DECON_WIN
 struct s3c_fb_win_config_data {
 	int fence;
 	struct s3c_fb_win_config config[S3C_FB_MAX_WIN + 1];
