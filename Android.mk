@@ -19,8 +19,6 @@ ifeq ($(TARGET_SLSI_VARIANT), bsp)
 ifeq ($(TARGET_SOC), exynos5433)
 exynos5433_dirs := \
 	mobicore \
-	libgatekeeper \
-	libkeymaster \
 	libsecurepath \
 	gralloc
 
